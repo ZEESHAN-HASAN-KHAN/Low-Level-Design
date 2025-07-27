@@ -14,7 +14,6 @@ public class ParkingFloor {
         this.floorNumber=floorNumber;
         this.parkingSpots=spots;
     }
-
     public synchronized Optional<ParkingSpot> getAvailableSpot(Vehicle vehicle)
     {
         return parkingSpots.stream().filter(spot->spot.isAvailable() && spot.canFitVehicle(vehicle)).findFirst();
