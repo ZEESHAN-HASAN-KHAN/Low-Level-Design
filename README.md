@@ -1,48 +1,49 @@
+Here’s a fresh README for your repository, summarizing its purpose, patterns, project structure, and including setup and usage instructions:
+
+---
+
 # Low-Level-Design
 
-This repository contains Java implementations of common low-level design patterns, including the **Observer Pattern** and the **Decorator Pattern**.
+This repository contains Java implementations of key low-level object-oriented design patterns and system design examples. It is intended for learners and professionals who want to understand and experiment with fundamental software design concepts.
+
+## Contents
+
+- **Design Patterns:**
+  - Decorator Pattern
+  - Observer Pattern
+  - Strategy Pattern
+- **System Design Examples:**
+  - Parking Lot System
+  - Elevator System
 
 ## Project Structure
 
 ```
-decorator/
-    BasePizzaInterface.java
-    Margaritta.java
-    Mushroom.java
-    ToppingInterface.java
-    VegDelight.java
-observer/
-    MobileObserver.java
-    ObservableConcrete.java
-    ObservableInterface.java
-    ObserverInterface.java
-    TvObserver.java
-Main.java
+decorator/               # Decorator Pattern (pizza example)
+observer/                # Observer Pattern (news channel example)
+Strategy/src/            # Strategy Pattern (shopping cart example)
+ParkingLot_System_Design/ # Parking Lot System Design (LLD)
+Elevator design/src/     # Elevator System Design
+Main.java                # Main entry point for Decorator/Observer demo
 ```
 
----
+## Design Patterns
 
-## Patterns Implemented
+### Decorator Pattern
 
-### 1. Decorator Pattern
-
-Located in the [`decorator`](decorator/) folder.
-
-- **Purpose:** Add new functionality to objects dynamically without altering their structure.
-- **Example:** Building pizzas with different toppings.
-- **Usage Example:**
+- **Purpose:** Dynamically add new functionality to objects.
+- **Example:** Building pizza objects with customizable toppings.
+- **Quick Usage:**
   ```java
   BasePizzaInterface vegDelight = new Mushroom(new VegDelight());
-  vegDelight.showCost(); // Output: Cost of Veg Delight pizza with Mushroom topping: 250
+  vegDelight.showCost();
   ```
 
-### 2. Observer Pattern
+### Observer Pattern
 
-Located in the [`observer`](observer/) folder.
-
-- **Purpose:** Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified.
-- **Example:** TV and Mobile observers receiving notifications from a news channel.
-- **Usage Example:**
+- **Purpose:** One-to-many dependency so changes in one object notify its dependents.
+- **Example:** TV and mobile observers receiving notifications.
+- **Quick Usage:**
   ```java
   ObservableInterface observable = new ObservableConcrete();
   ObserverInterface tvObserver = new TvObserver("TV1");
@@ -50,20 +51,61 @@ Located in the [`observer`](observer/) folder.
   observable.notifyObservers("Breaking News!");
   ```
 
----
+### Strategy Pattern
 
-## How to Run
+- **Purpose:** Select algorithm at runtime (e.g., payment methods).
+- **Example:** Shopping cart with card/cash payment strategies.
+- **Quick Usage:**
+  ```java
+  ShoppingCart cart = new ShoppingCart(new CardPaymentStrategy());
+  cart.purchase();
+  ```
 
-1. **Compile the project:**
+## System Design Examples
 
+### Parking Lot System
+
+- **Features:** Multi-floor parking, spot allocation, ticketing, fee calculation.
+- **Patterns Used:** Strategy, Factory, Singleton.
+- **Extensible:** Add vehicle types, fee strategies, spot types.
+- **Demo:** See `ParkingLot_System_Design/parkinglot/ParkingLotDemo.java`.
+
+### Elevator System
+
+- **Features:** Elevator requests, managing multiple elevators.
+- **Demo:** See `Elevator design/src/Main.java`.
+
+## Setup Instructions
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/ZEESHAN-HASAN-KHAN/Low-Level-Design.git
+   cd Low-Level-Design
+   ```
+
+2. **Compile Java files:**
    ```sh
    javac Main.java decorator/*.java observer/*.java
    ```
 
-2. **Run the main class:**
+3. **Run main demo:**
    ```sh
    java Main
    ```
 
-- By default, the `Main.java` demonstrates the Decorator Pattern.
--
+## Requirements
+
+- Java 8 or higher
+- No external libraries needed
+
+## Contributing
+
+Contributions are welcome! Add new patterns or system designs in their own directories, and include usage examples.
+
+## License
+
+Specify your license here (MIT, Apache, etc.) if you wish.
+
+---
+
+Let me know if you want to add author info, contact details, or more sections!
