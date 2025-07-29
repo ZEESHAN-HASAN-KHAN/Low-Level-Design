@@ -1,6 +1,3 @@
-Here’s a fresh README for your repository, summarizing its purpose, patterns, project structure, and including setup and usage instructions:
-
----
 
 # Low-Level-Design
 
